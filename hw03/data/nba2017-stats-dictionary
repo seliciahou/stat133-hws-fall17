@@ -1,0 +1,29 @@
+# ====================
+#Title: nba2017-stats-dictionary.md
+#Description: information about players and their corresponding team, position, height, weight, age, #experience, and salary
+#Source: www.basketball-reference.com
+#https://www.basketball-reference.com/teams/GSW/2017.html
+#=====================
+
+player: First and last name of player
+games_played: number of games the player has played
+minutes: how long the player has played for
+field_goals_made: how many field goals the player made
+field_goals_atts: how many field goals were attempted
+field_goals_perc: percentage of field goals made
+points3_made: how many 3 pointers were made
+points3_atts: how many 3 pointers were attempted
+points3_perc: percentage of 3 pointers that were made
+points2_made: how many 2 pointers were made
+points2_atts: how many 2 pointers were attempted
+points2_perc: percentage of 2 pointers that were made
+points1_made: how many 1 pointers were made
+points1_atts: how many 1 pointers were attempted
+points1_perc: percentage of 1 pointers that were made
+off_rebounds: number of off rebounds
+def_rebounds: number of def rebounds
+assists: number of assists
+steals: number of steals
+blocks: number of blocks
+turnovers: number of turnovers
+fouls: number of fouls

@@ -1,0 +1,15 @@
+# ====================
+#Title: nba2017-roster-dictionary.md
+#Description: information about players and their corresponding team, position, height, weight, age, #experience, and salary
+#Source: www.basketball-reference.com
+#https://www.basketball-reference.com/teams/GSW/2017.html
+#=====================
+
+Player: first and last name of players
+Team: 3-letter team abbreviation
+Position: player's position
+Height: how tall each player is in inches
+Weight: how much a player weighs in pounds
+Age: how old a player is
+Experience: how much experience a player has
+Salary: how much a player earns

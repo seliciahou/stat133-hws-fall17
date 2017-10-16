@@ -1,0 +1,6 @@
+# A tibble: 0 x 1
+# ... with 1 variables: <html><body>You are being <a
+#   href="https://raw.githubusercontent.com/ucb-stat133/stat133-fall-2017/master/data/nba2017-players.csv">redirected</a>.</body></html> <chr>
+# A tibble: 0 x 1
+# ... with 1 variables: <html><body>You are being <a
+#   href="https://raw.githubusercontent.com/ucb-stat133/stat133-fall-2017/master/data/nba2017-players.csv">redirected</a>.</body></html> <chr>
