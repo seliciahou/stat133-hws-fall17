@@ -1,0 +1,94 @@
+---
+title: "hw03-selicia-hou"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readr)    # importing data
+library(dplyr)    # data wrangling
+library(ggplot2)
+```
+
+```{r}
+teams1 <- read.csv("/Users/Selicia Hou/stat133/stat133-hws-fall17/hw03/data/nba2017-roster.csv", stringsAsFactors = FALSE)
+teams1
+```
+
+```{r}
+new = summarise(group_by(teams1, team), salary = sum(salary)/1000000)
+new
+```
+```{r}
+newer = arrange(new, desc(salary))
+newer
+```
+
+```{r}
+ggplot(newer, aes(x = reorder(team, salary), y = salary)) + geom_bar(stat='identity') + labs(title = "NBA Teams ranked by Total Salary", x="Team", y="Salary (in millions)") + coord_flip() + geom_hline(aes(yintercept = mean(salary), color="red"))
+```
+```{r}
+stats <- read.csv("/Users/Selicia Hou/stat133/stat133-hws-fall17/hw03/data/nba2017-stats.csv", stringsAsFactors = FALSE)
+stats
+```
+
+```{r}
+combine = full_join(teams1, stats, by="player")
+combine
+```
+
+```{r}
+points1 <- summarise(group_by(combine, team), points = sum(points3_made) + sum(points2_made) + sum(points1_made))
+points1
+```
+
+```{r}
+ggplot(points1, aes(x = reorder(team, points), y = points)) + geom_bar(stat='identity') + labs(title = "NBA Teams ranked by Total Points", x="Team", y="Total Points") + coord_flip() + geom_hline(aes(yintercept = mean(points), color="red"))
+```
+
+```{r}
+combine1 <- mutate(combine, efficiency = (combine$points3_made + combine$points2_made + combine$points1_made + combine$off_rebounds + combine$def_rebounds + combine$assists + combine$steals + combine$blocks - (combine$field_goals_atts - combine$field_goals_made) - combine$turnovers)/combine$games_played)
+combine1
+```
+
+```{r}
+ggplot(combine1, aes(x = reorder(team, -efficiency), y = efficiency)) + geom_bar(stat='identity') + labs(title = "NBA Teams ranked by Total Efficiency", x="Team", y="Total Efficiency") + coord_flip() + geom_hline(aes(yintercept = mean(efficiency), color="red"))
+```
+The salary graph shows that cleveland and LAC both earn substantially more than the average of around 90 million. The graph of total points show that gsw and lac have substantially more points than the average of around 8200 points. The efficiency graph shows that CLE and GSW have a substantially higher efficiency than the average of around 150. These graphs show that GSW, CLE, and LAC are realtively strong teams.
+
+
+```{r}
+help(prcomp)
+```
+
+```{r}
+stats1 <- select(stats, points3_made, points2_made, points1_made, off_rebounds, def_rebounds, assists, steals, blocks, turnovers, fouls)
+stats1
+```
+
+```{r}
+pca <- prcomp(stats1, scale.=TRUE)
+pca
+```
+
+```{r}
+eigs <- data.frame(
+  eigenvalue = pca$sdev^2,
+  proportion = round(100 * pca$sdev^2 / sum(pca$sdev^2), 3)
+)
+eigs
+```
+
+1. It was my first using this kind of file structure and I found it difficult because I wasn't used to it.
+2. It was my first time with relative paths too and they are important because it makes it easier to organize and find files.
+3. It wasn't my first time because we went over it in lab. I didn't think it was too difficult and I thought it was easier than R Markdown.
+4. I thought PCA was extremely difficult and I still don't really understand it.
+5. I thought making the scatterplots was PCA was really hard and I still don't know how to do it.
+6. What was easy was joining tables and making basic graphs with R script.
+7. No one helped me.
+8. It took me 15 hours to finish this.
+9. Each part was equally time consuming.
+10. What was interesting was watching how each graph was formed.
