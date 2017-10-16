@@ -1,0 +1,7 @@
+   efficiency    
+ Min.   :-0.600  
+ 1st Qu.: 3.274  
+ Median : 5.431  
+ Mean   : 6.459  
+ 3rd Qu.: 8.593  
+ Max.   :22.802  
