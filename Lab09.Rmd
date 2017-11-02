@@ -1,0 +1,30 @@
+---
+title: "Lab09"
+output: github_document
+---
+
+```{r}
+bag1 <- c('white', 'white', 'red')
+bag2 <- c(rep('white', 3), 'red')
+```
+
+```{r}
+bags <- c('bag1', 'bag2')
+repetitions <- 1000
+drawn_balls <- character(repetitions)
+
+set.seed(345)
+for (i in 1:repetitions) {
+  # select one bag
+  chosen_bag <- sample(bags, 1)
+  
+  # draw a ball from chosen bag
+  if (chosen_bag == 'bag1') {
+    drawn_balls[i] <- sample(bag1, 1)
+  } else {
+    drawn_balls[i] <- sample(bag2, 1)
+  }
+}
+
+table(drawn_balls) / repetitions
+```
